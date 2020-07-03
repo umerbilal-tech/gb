@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Product Info</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style type="text/css">
+    .navbar-dark .navbar-toggler {
+      border-color: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .navbar {
+      z-index: 1000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Open Sans", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #7ed6df;
+      transition: 0.6s linear;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 1100px;
+      background: #f1f1f1;
+      padding: 30px 15px;
+    }
+
+    .product-card {
+      min-width: 350px;
+      background: #ecedef;
+      padding: 40px;
+      position: absolute;
+      left: 50%;
+      top: 35%;
+      transform: translate(-50%, -35%);
+      text-transform: uppercase;
+      border-radius: 20px 20px 30px 30px;
+      z-index: 10;
+    }
+
+    .product-card h1 {
+      font-size: 26px;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #bbb;
+      text-align: center;
+    }
+
+    .product-pic {
+      background-image: url(./images/img/1.png);
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      transition: .6s linear;
+    }
+
+    .product-colors {
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .product-colors span {
+      width: 14px;
+      height: 14px;
+      margin: 0 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .blue {
+      background: #7ed6df !important;
+    }
+
+    .green {
+      background: #badc58 !important;
+    }
+
+    .yellow {
+      background: #f9ca24 !important;
+    }
+
+    .rose {
+      background: #ff7979 !important;
+    }
+
+    .product-colors .active:after {
+      content: "";
+      width: 22px;
+      height: 22px;
+      border: 2px solid #8888;
+      position: absolute;
+      border-radius: 50%;
+      box-sizing: border-box;
+      left: -4px;
+      top: -4px;
+    }
+
+    .product-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .product-price {
+      color: #7ed6df !important;
+      font-size: 24px;
+    }
+
+    .product-button {
+      margin-left: auto;
+      color: #7ed6df !important;
+      text-decoration: none !important;
+      border: 2px solid;
+      padding: 8px 24px;
+      border-radius: 20px;
+      transition: .4s linear;
+    }
+
+    .product-button:hover {
+      transform: scale(1.06);
+    }
+
+    .footer-container {
+      max-width: 1300px;
+      margin: auto;
+      padding: 0 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .social-media {
+      margin: 20px 0;
+    }
+
+    .social-media a {
+      color: #777;
+      padding: 10px;
+      margin-right: 10px;
+      font-size: 22px;
+      text-decoration: none;
+      transition: .3s linear;
+      border-radius: 5px;
+    }
+
+    .social-media a:hover {
+      color: #222;
+    }
+
+    @media screen and (max-width:700px) {
+      .product-card {
+        display: inline-block;
+        top: 25.5%;
+        left: 50%;
+        transform: translate(-50%, -25.5%);
+
+      }
+
+      footer {
+        display: flex;
+        width: 500px;
+      }
+
+      .footer-container {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgba(153, 153, 153, 0.315);">
+        <a class="navbar-brand" href="./index.html">C-Mart</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./products.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./shops.html">Shops</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <div class="product-card">
+      <h1>Original Shoes</h1>
+      <p>Lorem ipsum dolor sit amet</p>
+      <div class="product-pic"></div>
+      <div class="product-colors">
+        <span class="blue active" data-color="#7ed6df" data-pic="url(./images/img/1.png)"></span>
+        <span class="green" data-color="#badc58" data-pic="url(./images/img/2.png)"></span>
+        <span class="yellow" data-color="#f9ca24" data-pic="url(./images/img/3.png)"></span>
+        <span class="rose" data-color="#ff7979" data-pic="url(./images/img/4.png)"></span>
+      </div>
+      <div class="product-info">
+        <div class="product-price">$90</div>
+        <a href="#" class="product-button">Add to Cart</a>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-container">
+        <p class="rights-text">© 2020 C-Mart | All Rights Reserved.</p>
+        <div class="social-media">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-youtube"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <script>
+    $(".product-colors span").click(function () {
+      $(".product-colors span").removeClass("active");
+      $(this).addClass("active");
+      $("body").css("background", $(this).attr("data-color"));
+      $(".product-price").css("color", $(this).attr("data-color"));
+      $(".product-button").css("color", $(this).attr("data-color"));
+      $(".product-pic").css("background-image", $(this).attr("data-pic"));
+    });
+  </script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

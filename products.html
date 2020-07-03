@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Products</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/footer.css">
+    <style>
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.98) !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="sty.css">
+    <style>
+    
+     :root{ --main-color: #e74c3c; }
+.product-grid{
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+.product-grid .product-image{
+    overflow: hidden;
+    position: relative;
+}
+.product-grid .product-image:before{
+    content: "";
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: all 0.4s ease-out 0s;
+}
+.product-grid:hover .product-image:before{ opacity: 1; }
+.product-grid .product-image a{ display: block; }
+.product-grid .product-image img{
+    width: 100%;
+    height: auto;
+}
+.product-image .pic-1{
+    opacity: 1;
+    backface-visibility: hidden;
+    transition: all 0.4s ease-out 0s;
+}
+.product-grid:hover .product-image .pic-1{ opacity: 0; }
+.product-image .pic-2{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    backface-visibility: hidden;
+    transform: scale(3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.4s ease-out 0s;
+}
+.product-grid:hover .product-image .pic-2 {
+    opacity: 1;
+    transform: scale(1);
+}
+.product-image .product-trend-label,
+.product-image .product-discount-label{
+    content: "";
+    color: #fff;
+    background-color: #2ecc71;
+    font-size: 12px;
+    line-height: 28px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 7px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+}
+.product-image .product-discount-label{
+    background-color: var(--main-color);
+    left: auto;
+    right: 12px;
+}
+.product-grid .social {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    z-index: 4;
+}
+.product-grid .social li {
+    margin: 0 0 12px;
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: transform .3s ease-out 0s;
+}
+.product-grid:hover .social li {
+    opacity: 1;
+    transform: translateX(0);
+}
+.product-grid:hover .social li:nth-child(2){ transition-delay: 0.1s; }
+.product-grid:hover .social li:nth-child(3){ transition-delay: 0.2s; }
+.product-grid:hover .social li:nth-child(4){ transition-delay: 0.3s; }
+.product-grid .social li a {
+    color: #fff;
+    font-size: 22px;
+    transition: all 0.3s;
+}
+.product-grid .social li a:hover { color: var(--main-color); }
+.product-grid .social li a:before,
+ .product-grid .social li a:after{
+    content: attr(data-tip);
+    color: #000;
+    background: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    display: none;
+    transform: translateY(-50%);
+    position: absolute;
+    left: 33px;
+    top: 50%;
+    transition: all 0.3s;
+}
+.product-grid .social li a:after{
+    content: '';
+    background: linear-gradient(-45deg, #fff 49%, transparent 50%);
+    width: 10px;
+    height: 10px;
+    top: 40%;
+    left: 20px;
+}
+.product-grid .social li a:hover:before,
+.product-grid .social li a:hover:after{
+      display: block;
+}
+.product-grid .product-content{ padding: 12px 0; }
+.product-grid .title{
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin: 0 0 5px;
+}
+.product-grid .title a{ color: #959595; }
+.product-grid .title a:hover{ color: var(--main-color); }
+.product-grid .price{
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+}
+.product-grid .price span{
+    color: #333;
+    text-decoration: line-through;
+    margin-right: 3px;
+}
+.product-grid .price.discount{ color: var(--main-color); }
+@media only screen and (max-width:990px){
+    .product-grid{ margin-bottom: 30px; }
+}
+    
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <a class="navbar-brand" href="./index.html">C-Mart</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation"></button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./products.html">
+                            Products <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./shops.html">Shops</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+           
+    <div class="container">
+    <div class="row">
+        <div class="col-md-5 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="img-1.jpg">
+                        <img class="pic-2" src="img-2.jpg">
+                    </a>
+                    <span class="product-trend-label">Trend</span>
+                    <ul class="social">
+                        
+                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Men's Clothing</b></a></h3>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="img-3.jpg">
+                        <img class="pic-2" src="img-4.jpg">
+                    </a>
+                    <span class="product-trend-label">Trend</span>
+                    <span class="product-discount-label">-20%</span>
+                    <ul class="social">
+                       
+                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Women's clothing</b></a></h3>
+                    
+                </div>
+            </div>
+        </div>
+           
+           
+           
+           <div class="col-md-5 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="img-10.jpg">
+                        <img class="pic-2" src="img-9.jpg">
+                    </a>
+                    <span class="product-trend-label">Trend</span>
+                    <span class="product-discount-label">-20%</span>
+                    <ul class="social">
+                        
+                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>HouseHold Things</b></a></h3>
+                   
+                </div>
+            </div>
+        </div> 
+           
+            
+              <div class="col-md-5 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="img-12.jpg">
+                        <img class="pic-2" src="img-11.jpg">
+                    </a>
+                    <span class="product-trend-label">Trend</span>
+                    <span class="product-discount-label">-20%</span>
+                    <ul class="social">
+                       
+                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Stationary</b></a></h3>
+                   
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-5 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="img-16.jpg">
+                        <img class="pic-2" src="img-15.jpg">
+                    </a>
+                    <span class="product-trend-label">Trend</span>
+                    <ul class="social">
+                        
+                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Hardwares</b></a></h3>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-6">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1" src="img-14.jpg">
+                        <img class="pic-2" src="img-13.jpg">
+                    </a>
+                    <span class="product-trend-label">Trend</span>
+                    <ul class="social">
+                        
+                        <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#"><b>Vegetables and fruits</b></a></h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="footer-widget">
+                            <h3>Stay in touch</h3>
+                            <div class="footer-widget-content">
+                                <a href="mailto:sales@example.com" class="contact-link">sales@example.com</a>
+                                <a href="mailto:support@example.com" class="contact-link red"> support@example.com </a>
+                                <a href="tel:0121234" class="contact-link">+91 (123) 456-789</a>
+                                <div class="footer-social">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="footer-widget">
+                            <h3>Latest Events</h3>
+                            <div class="footer-widget-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object" src="http://placehold.it/40x40" alt="..."
+                                                style="margin-right: 20px;">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <p><a href="#">Lorem ipsum dolor sit amet.</a></p>
+                                        <span>September 30, 2020 </span>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object" src="http://placehold.it/40x40" alt="..."
+                                                style="margin-right: 20px;">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <p><a href="#">Lorem ipsum dolor sit amet.</a></p>
+                                        <span>September 30, 2020 </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="footer-widget">
+                            <h3>Opening Hour</h3>
+                            <div class="footer-widget-content">
+                                <div class="open-time ">
+                                    <ul class="opening-time">
+                                        <li><span><i class="fa fa-times"></i></span>
+                                            <p class="clock-time"><strong>Monday :</strong> closed</p>
+                                        </li>
+                                        <li><span><i class="fa fa-check"></i></span>
+                                            <p><strong>Tue-Fri :</strong> 8am - 12am</p>
+                                        </li>
+                                        <li><span><i class="fa fa-check"></i></span>
+                                            <p><strong>Sat-Sun :</strong> 7am - 1am</p>
+                                        </li>
+                                        <li><span><i class="fa fa-check"></i></span>
+                                            <p><strong>Holidays :</strong> 12pm-12am</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="footer-widget">
+                            <h3>Latest Events</h3>
+                            <div class="footer-widget-content">
+                                <div class="images-gellary">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <img src="http://placehold.it/40x40" alt="Instagram 01">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="http://placehold.it/40x40" alt="Instagram 02">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="http://placehold.it/40x40" alt="Instagram 03">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="http://placehold.it/40x40" alt="Instagram 04">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="http://placehold.it/40x40" alt="Instagram 05">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="http://placehold.it/40x40" alt="Instagram 06">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-copyright">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <p>Copyright C-Mart © 2020. All rights reserved.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "c-mart",
+  "version": "1.0.0",
+  "description": "C-Mart is an App For Selling Home and Glossary Store in Website Application.\r Created By Developers [NJ-TECH].\r &copy; 2020: NJ-TECH Private Limited Company.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnny190700/C-Mart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnny190700/C-Mart/issues"
+  },
+  "homepage": "https://github.com/johnny190700/C-Mart#readme",
+  "keywords": [],
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "popper": "^1.0.1"
+  }
+}
